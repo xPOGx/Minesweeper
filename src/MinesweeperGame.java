@@ -29,10 +29,15 @@ public class MinesweeperGame implements ActionListener {
     private static final String FLAG = "\uD83D\uDEA9";
     private static final Color STANDART_BUTTON_COLOR = new JButton().getBackground();
 
+    // TODO: first open not a mine
+    // TODO: Settings frame/pop-up with size and difficulty
+    // TODO: Click on OpenCell, if number(in grid 3x3) == flags(in grid 3x3) -> opens all(grid 3x3)
+    // TODO: create custom layout(no auto)
+
     MinesweeperGame(int size) {
         SIDE = size;
         createGame(); // fills logic 2d array
-        initialize(); // 
+        initialize(); // create interface
     }
 
     private void initialize() {
@@ -48,18 +53,6 @@ public class MinesweeperGame implements ActionListener {
         buttonPanel = new JPanel(); // CENTER Grid panel
         buttonPanel.setVisible(true);
         buttonPanel.setLayout(new GridLayout(SIDE, SIDE));
-
-        textField = new JLabel(); // 2 in textPanel
-        textField.setHorizontalAlignment(JLabel.LEFT);
-        textField.setFont(font);
-        textField.setForeground(Color.WHITE);
-        textField.setText("Bombs: " + countMinesOnField);
-
-        textFieldScore = new JLabel(); // 3 in textPanel
-        textFieldScore.setHorizontalAlignment(JLabel.RIGHT);
-        textFieldScore.setFont(font);
-        textFieldScore.setForeground(Color.WHITE);
-        textFieldScore.setText("Score: " + score);
 
         buttons = new JButton[SIDE][SIDE]; // fill buttonPanel Grid
         for (int i = 0; i < buttons.length; i++) {
@@ -80,8 +73,17 @@ public class MinesweeperGame implements ActionListener {
         buttonFlag.setText(HAND);
         buttonFlag.setVisible(true);
 
+        textField = new JLabel(); // 2 in textPanel
+        textField.setFont(font);
+        textField.setForeground(Color.BLUE);
+        textField.setText("Bombs: " + countMinesOnField);
+
+        textFieldScore = new JLabel(); // 3 in textPanel
+        textFieldScore.setFont(font);
+        textFieldScore.setForeground(Color.WHITE);
+        textFieldScore.setText("Score: " + score);
+
         buttonRestart = new JButton(); // 4 in textPanel
-        buttonRestart.setFocusable(false);
         buttonRestart.addActionListener(this);
         buttonRestart.setFont(font);
         buttonRestart.setText("Restart");
