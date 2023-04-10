@@ -1,2 +1,2 @@
-# Games
-Games on Java
+# Games on Java
+First game, Minesweeper
