@@ -1,2 +1,2 @@
-# Minesweeperon Java
+# Minesweeper on Java
 First game, Minesweeper
